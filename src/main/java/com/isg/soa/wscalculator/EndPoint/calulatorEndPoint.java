@@ -5,7 +5,6 @@ import isg.soa.calculator.schema.AddRequest;
 import isg.soa.calculator.schema.AddResponse;
 import isg.soa.calculator.schema.MinusRequest;
 import isg.soa.calculator.schema.MunisResponse;
-import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -13,7 +12,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-//@Log4j2
+
 @Endpoint
 public class calulatorEndPoint {
     public static final String NAMESPACE_URI = "http://wscalculator.soa.isg.com/schema";

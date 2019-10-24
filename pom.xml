@@ -167,6 +167,7 @@
 					<execution>
 						<id>xjc</id>
 						<phase>generate-sources</phase>
+
 						<goals>
 							<goal>xsdtojava</goal>
 						</goals>
