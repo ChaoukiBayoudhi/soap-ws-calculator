@@ -1,16 +1,15 @@
 package com.isg.soa.wscalculator.EndPoint;
 
 
-import isg.soa.calculator.schema.AddRequest;
-import isg.soa.calculator.schema.AddResponse;
-import isg.soa.calculator.schema.MinusRequest;
-import isg.soa.calculator.schema.MunisResponse;
+import isg.soa.calculator.schema.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
+import java.math.BigDecimal;
 
 
 @Endpoint
@@ -38,6 +37,28 @@ public class calulatorEndPoint {
         log.info("A request for soustraction: " + request.getX() + " + " + request.getY());
         MunisResponse response = new MunisResponse();
         response.setResult(request.getX().subtract(request.getY()));
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "multiplicationRequest")
+    @ResponsePayload
+    public MultipResponse getMultiply(@RequestPayload MultiplicationRequest request) {
+
+        log.info("A request for soustraction: " + request.getX() + " + " + request.getY());
+        MultipResponse response = new MultipResponse();
+        response.setResult(request.getX().multiply(request.getY()));
+        return response;
+    }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "divisionRequest")
+    @ResponsePayload
+    public DivisionResponse getDivision(@RequestPayload DivisionRequest request) throws Exception {
+
+        log.info("A request for soustraction: " + request.getX() + " + " + request.getY());
+        DivisionResponse response = new DivisionResponse();
+        if(request.getY().compareTo(BigDecimal.ZERO) == 0)
+            throw new Exception("Error ! Trying to Divide by Zero");
+        response.setResult(request.getX().divide(request.getY()));
         return response;
     }
 

@@ -175,7 +175,7 @@
 							<xsdOptions>
 								<xsdOption>
 									<xsd>${basedir}/src/main/resources/Calculator.xsd</xsd>
-								<packagename>isg.soa.calculator.schema</packagename>
+									<packagename>isg.soa.calculator.schema</packagename>
 								</xsdOption>
 							</xsdOptions>
 						</configuration>
