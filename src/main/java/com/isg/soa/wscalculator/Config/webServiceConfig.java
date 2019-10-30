@@ -19,7 +19,12 @@ import javax.servlet.Servlet;
 @Configuration
 public class webServiceConfig {
         @Bean
+        //The ApplicationContext interface provides the getBean()
+        // method to retrieve bean from the spring container.
+        //
         public ServletRegistrationBean<Servlet> messageDispatcherServet(ApplicationContext appCtx){
+            //MessageDispatcherServlet is the core component of Spring-WS.
+            // With simple configuration, a Web-Service can be set up in minutes.
             MessageDispatcherServlet servlet =new MessageDispatcherServlet();
             servlet.setApplicationContext(appCtx);
             servlet.setTransformWsdlLocations(true);

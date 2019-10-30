@@ -19,7 +19,11 @@ public class calulatorEndPoint {
     private static final Logger log =
             LoggerFactory.getLogger(calulatorEndPoint.class);
 
-
+    //The payload is the part of that response that is communicating
+    // directly to you. In soap is a part of the xml response data.
+    // In REST APIs this is usually some JSON formatted data.
+    //You can also send payload to the server as well.
+    // This is known as the body of your request
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "addRequest")
     @ResponsePayload
     public AddResponse getAdd(@RequestPayload AddRequest request) {
